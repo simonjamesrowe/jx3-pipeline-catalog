@@ -18,14 +18,6 @@ spec:
           - secretRef:
               name: jx-boot-job-env-vars
               optional: true
-          volumes:
-          - name: docker-socket
-            hostPath:
-              path: /var/run/docker.sock
-              type: Socket
-          - name: gradle-secret
-            secret:
-              name: gradle
           name: ""
           resources:
             requests:
@@ -65,8 +57,8 @@ spec:
           volumeMounts:
             - name: docker-socket
               mountPath: /var/run/docker.sock
-#            - name: gradle
-#              mountPath: /.gradle
+            #            - name: gradle
+            #              mountPath: /.gradle
         - image: ghcr.io/jenkins-x/jx-registry:0.1.1
           name: check-registry
           resources: {}
@@ -112,7 +104,15 @@ spec:
             #!/usr/bin/env sh
             source .jx/variables.sh
             jx promote -b --all --timeout 1h --no-poll
-  podTemplate: {}
+  podTemplate:
+    volumes:
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
+          type: Socket
+      - name: gradle-secret
+        secret:
+          secretName: gradle
   serviceAccountName: tekton-bot
   timeout: 12h0m0s
 status: {}
