@@ -14,6 +14,8 @@ spec:
           env:
           - name: HOME
             value: /tekton/home
+          - name: TESTCONTAINERS_HOST_OVERRIDE
+            value: 192.168.4.23
           envFrom:
           - secretRef:
               name: jx-boot-job-env-vars
