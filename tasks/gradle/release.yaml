@@ -62,11 +62,11 @@ spec:
           script: |
             #!/bin/sh
             gradle clean build
-          volumeMounts:
-            - name: docker-socket
-              mountPath: /var/run/docker.sock
-            - name: gradle
-              mountPath: /.gradle
+#          volumeMounts:
+#            - name: docker-socket
+#              mountPath: /var/run/docker.sock
+#            - name: gradle
+#              mountPath: /.gradle
         - image: ghcr.io/jenkins-x/jx-registry:0.1.1
           name: check-registry
           resources: {}
