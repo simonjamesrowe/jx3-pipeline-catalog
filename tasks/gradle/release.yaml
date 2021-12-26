@@ -54,9 +54,9 @@ spec:
           script: |
             #!/bin/sh
             gradle clean build
-          volumeMounts:
-            - name: gradle-secret
-              mountPath: /gradle
+#          volumeMounts:
+#            - name: gradle-secret
+#              mountPath: /gradle
 
         - image: ghcr.io/jenkins-x/jx-registry:0.1.1
           name: check-registry
