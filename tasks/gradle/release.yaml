@@ -50,7 +50,7 @@ spec:
           script: |
             #!/usr/bin/env sh
             jx gitops variables
-        - image: harbor.simonjamesrowe.com/simonjamesrowe/gradle7-graalvm-java17:0.0.3
+        - image: harbor.simonjamesrowe.com/simonjamesrowe/gradle7-graalvm-java17:0.0.4
           name: build-gradle-build
           resources: {}
           script: |
