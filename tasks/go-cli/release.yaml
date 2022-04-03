@@ -42,7 +42,7 @@ spec:
           script: |
             #!/usr/bin/env sh
             jx-release-version --tag > VERSION
-        - image: ghcr.io/jenkins-x/jx-boot:3.2.235
+        - image: ghcr.io/jenkins-x/jx-boot:3.2.287
           name: jx-variables
           resources: {}
           script: |
@@ -70,7 +70,7 @@ spec:
             export BRANCH=$(git rev-parse --abbrev-ref HEAD)
             export BUILDDATE=$(date)
             export REV=$(git rev-parse HEAD)
-            export GOVERSION="1.15"
+            export GOVERSION="1.17.8"
             export ROOTPACKAGE="github.com/$REPO_OWNER/$REPO_NAME"
             goreleaser release
         - image: ghcr.io/jenkins-x/jx-registry:0.1.1

@@ -25,14 +25,14 @@ spec:
               memory: 600Mi
           workingDir: /workspace/source
         steps:
-        - image: ghcr.io/jenkins-x/jx-boot:3.2.235
+        - image: ghcr.io/jenkins-x/jx-boot:3.2.287
           name: jx-variables
           resources: {}
           script: |
             #!/usr/bin/env sh
             jx gitops variables
             jx gitops pr variables
-        - image: golang:1.15
+        - image: golang:1.17.8
           name: build-make-linux
           resources: {}
           script: |
@@ -44,7 +44,7 @@ spec:
           script: |
             #!/bin/sh
             golangci-lint run
-        - image: golang:1.15
+        - image: golang:1.17.8
           name: build-make-test
           resources: {}
           script: |
